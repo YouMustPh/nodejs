@@ -1,25 +1,26 @@
-const express = require("express");
-const router = express.Router();
+const {Router} = require("express");
+const router = Router();
 
-router.get("/:id?", function (req, res) {
-    if(req.params.id){
-        res.send("Nota ID " + req.params.id);
+router.get("/:id?",  (req, res) => {
+  const {id} = req.params;
+    if(id){
+        res.send("Nota ID " + id);
     } else {
         res.send("Todas as notas")
     }
   
 });
 
-router.post("/", function (req, res) {
+router.post("/", (req, res) =>{
   console.log(req.body);
   res.send("POST nota");
 });
 
-router.put("/:id", function (req, res) {
+router.put("/:id",(req, res) => {
   res.send("PUT nota");
 });
 
-router.delete("/:id", function (req, res) {
+router.delete("/:id", (req, res)=> {
   res.send("DELETE nota");
 });
 
