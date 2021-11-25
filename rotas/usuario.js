@@ -7,11 +7,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const usuario = await Usuario.create({
-    nome:"Paulo Henrique",
-    email:"phps.1125@gmail.com",
-    senha: '123mudar',
-  })
+  const usuario = await Usuario.create(req.body)
   res.send(usuario);
 });
 
